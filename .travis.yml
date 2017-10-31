@@ -10,15 +10,11 @@ stages:
   - test
   - name: deploy
     if: branch = master
-test:
-  install:
-    - pip install -r requirements.txt
-  provider:
-    - script
-  script:
-    - pytest
-deploy:
-    provider:
-      - script
-    script:
-      - docker_push_image.sh
+
+jobs:
+  include:
+    - stage: test
+      script pip install -r requirements.txt --use-mirrors
+      script pytest
+    - stage: deploy
+      script docker_push_image.sh
