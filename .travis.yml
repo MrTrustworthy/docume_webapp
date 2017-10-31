@@ -19,4 +19,4 @@ jobs:
         - pytest
     - stage: deploy
       script:
-        - docker_push_image.sh
+        - ./docker_push_image.sh
