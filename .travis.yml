@@ -15,7 +15,7 @@ jobs:
   include:
     - stage: test
       script:
-        - pip install -r requirements.txt --use-mirrors
+        - pip install -r requirements.txt
         - pytest
     - stage: deploy
       script:
