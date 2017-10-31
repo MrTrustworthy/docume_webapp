@@ -14,7 +14,9 @@ stages:
 jobs:
   include:
     - stage: test
-      script pip install -r requirements.txt --use-mirrors
-      script pytest
+      script:
+        - pip install -r requirements.txt --use-mirrors
+        - pytest
     - stage: deploy
-      script docker_push_image.sh
+      script:
+        - docker_push_image.sh
